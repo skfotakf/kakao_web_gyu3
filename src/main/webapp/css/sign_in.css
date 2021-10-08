@@ -95,6 +95,28 @@ main {
     font-weight: 700;
 }
 
+.item_msg {
+	font-size: 12px;
+	color: red;
+	font-weight: 600;
+}
+
+.item_msg .msg1 {
+	display: none;
+}
+
+.item_msg .msg2 {
+	display: none;
+}
+
+.item_msg .msg3 {
+	display: none;
+}
+
+.item_msg .msg4 {
+	display: block;
+}
+
 .item_chk {
     display: flex;
     margin-top: 20px;
