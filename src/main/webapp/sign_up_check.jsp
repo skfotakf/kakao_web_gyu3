@@ -1,4 +1,4 @@
-<%@page import="com.kakao.web.dao.SignUpDaoImpl"%>
+<%@ page import="com.kakao.web.dao.SignUpDaoImpl"%>
 <%@page import="com.kakao.web.dao.SignUpDao"%>
 <%@page import="com.kakao.web.dto.UserDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -28,8 +28,9 @@
 	} else if(submit_flag.equals("2")) {
 		// 전화번호 인증요청
 		
-		SignUpDao signUpDao = new SignUpDaoImpl();
+		
 		int flag = signUpDao.phoneNumberCheck(phone,name);
+		System.out.println(flag);
 		
 		
 %>
