@@ -1,20 +1,8 @@
-<%@ page import="com.kakao.web.dao.SignUpDaoImpl"%>
-<%@ page import="com.kakao.web.dao.SignUpDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 
-<%
-	String id = request.getParameter("id");
-	
-	SignUpDao signUpDao = new SignUpDaoImpl();
-	
-	int flag = signUpDao.idCheck(id+"@kakao.com");
-	if(flag == 1) {
-		response.sendRedirect("sign_up_email.jsp?id=" + id + "&flag=" + flag);
-	}
-%>
 
 <head>
     <meta charset="UTF-8">
@@ -31,8 +19,9 @@
             <jsp:include page="include/sign_up_include/sign_up_header.jsp"></jsp:include>
             <main>
                 <div class="warp_form">
-                    <form action="sign_up_repassword.jsp" method="post">
-                    	<input type="hidden" id="id" name="id" value="<%=id %>">
+                    <form action="signUp" method="post">
+                    	<input type="hidden" name="submit_status" value="password">
+                    	<input type="hidden" id="id" name="id" value="<%= request.getAttribute("id") %>">
                         <div class="navigation_wrap">
                             <progress class="bar_navigation" value="40" max="100"></progress>
                         </div>

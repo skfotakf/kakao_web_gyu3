@@ -1,11 +1,11 @@
-package com.kakao.web.dao;
+package com.kakao.web.sign.model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import com.kakao.web.db.DBConnectionMgr;
-import com.kakao.web.dto.UserDto;
+import com.kakao.web.sign.model.dto.UserDto;
 
 public class SignUpDaoImpl implements SignUpDao {
 	
