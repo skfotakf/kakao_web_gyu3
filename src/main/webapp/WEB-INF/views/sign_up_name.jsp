@@ -22,7 +22,8 @@
                 <div class="warp_form">
                     <form action="signUp" method="post">
                     	<input type="hidden" name="submit_status" value="name">
-
+						<input type="hidden" name="id" value="<%= request.getParameter("id")%>">
+                    	<input type="hidden" name="password" value="<%= request.getParameter("password")%>">
                         <div class="navigation_wrap">
                             <progress class="bar_navigation" value="80" max="100"></progress>
                         </div>
@@ -33,7 +34,7 @@
                         </div>
                         <div class="item_msg">
                         	<span class="msg1">필수 항목입니다.</span>
-                        	<span class="msg2">비밀번호가 일치하지 않습니다.</span>
+                        	
                         </div>
                         <div class="confirm_btn">
                             <button type="button" class="btn_g" >다음</button>

@@ -23,7 +23,7 @@ item_ip[0].onblur = () => {
 }
 
 const btn_login = document.querySelector('.btn_login');
-const submit_flag = document.querySelector('#submit_flag');
+
 const msg1 = document.querySelector('.msg1');
 const msg2 = document.querySelector('.msg2');
 const msg3 = document.querySelector('.msg3');
@@ -43,6 +43,8 @@ if(flag.value == 0) {
 	item_ip[0].value = return_id.value; 
 	item_ip[0].focus();
 } else if(flag.value == 1) {
+	const util_tf = document.querySelector('.util_tf');
+	util_tf.style.display = 'block';
 	msg1.style.display = "none";
 	msg2.style.display = "none";
 	msg3.style.display = "block";
@@ -51,8 +53,23 @@ if(flag.value == 0) {
 	item_ip[1].value = return_password.value; 
 	item_ip[1].focus();
 }
+
+item_ip[0].onkeypress = () =>{
+	if(window.event.keyCode == 13) {
+		window.event.preventDefault();
+		onSubmit();
+	}
+}
+
+
+item_ip[1].onkeypress = () =>{
+	if(window.event.keyCode == 13) {
+		window.event.preventDefault();
+		onSubmit();
+	}
+}
 btn_login.onclick = () =>{
-	submit_flag.value = '1';
+
 	onSubmit();
 }
 

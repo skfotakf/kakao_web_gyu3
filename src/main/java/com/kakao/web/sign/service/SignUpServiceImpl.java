@@ -1,7 +1,8 @@
-package com.kakao.web.sign.model;
+package com.kakao.web.sign.service;
 
 import com.kakao.web.sign.model.dao.SignUpDao;
 import com.kakao.web.sign.model.dao.SignUpDaoImpl;
+import com.kakao.web.sign.model.dto.UserDto;
 
 public class SignUpServiceImpl implements SignUpService {
 
@@ -20,7 +21,12 @@ public class SignUpServiceImpl implements SignUpService {
 	@Override
 	public int phoneNumberCheck(String phone, String name) {
 		
-		return 0;
+		return signUpDao.phoneNumberCheck(phone, name);
+	}
+
+	@Override
+	public boolean signUp(UserDto userDto) {
+		return signUpDao.signUp(userDto);
 	}
 
 	

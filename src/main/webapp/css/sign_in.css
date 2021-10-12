@@ -114,7 +114,7 @@ main {
 }
 
 .item_msg .msg4 {
-	display: block;
+	display: none;
 }
 
 .item_chk {
