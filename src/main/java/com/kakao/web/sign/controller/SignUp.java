@@ -58,12 +58,27 @@ public class SignUp extends HttpServlet {
 					request.getRequestDispatcher("WEB-INF/views/sign_up_password.jsp").forward(request, response);
 				}
 			} else if(submitStatus.equals("password")) {
+				request.setAttribute("id", request.getParameter("id"));
+				request.setAttribute("password", request.getParameter("password"));
 				request.getRequestDispatcher("WEB-INF/views/sign_up_repassword.jsp").forward(request, response);
+			
 			} else if(submitStatus.equals("repassword")) {
+				
+				request.setAttribute("id", request.getParameter("id"));
+				request.setAttribute("password", request.getParameter("password"));
 				request.getRequestDispatcher("WEB-INF/views/sign_up_name.jsp").forward(request, response);
+			
 			} else if(submitStatus.equals("name")) {
+				request.setAttribute("id", request.getParameter("id"));
+				request.setAttribute("password", request.getParameter("password"));
+				request.setAttribute("name", request.getParameter("name"));
 				request.getRequestDispatcher("WEB-INF/views/sign_up_phone.jsp").forward(request, response);
+			
 			} else if(submitStatus.equals("phone")) {
+				request.setAttribute("id", request.getParameter("id"));
+				request.setAttribute("password", request.getParameter("password"));
+				request.setAttribute("name", request.getParameter("name"));
+				request.setAttribute("phone", request.getParameter("phone"));
 				String submitFlag = request.getParameter("submit_flag");
 				
 				if(submitFlag.equals("1")) {

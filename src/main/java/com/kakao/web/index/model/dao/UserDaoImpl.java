@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao{
 		
 		try {
 			con = pool.getConnection();
-			sql = "select * from user_mst where user_id = ?";
+			sql = "select * from user_mst where user_email = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();

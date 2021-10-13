@@ -1,10 +1,9 @@
-<%@ page import="com.kakao.web.sign.model.dao.SignInDaoImpl"%>
-<%@ page import="com.kakao.web.sign.model.dao.SignInDao"%>
+<%@page import="com.kakao.web.sign.model.dao.SignInDaoImpl"%>
+<%@page import="com.kakao.web.sign.model.dao.SignInDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,10 +29,9 @@
                 <div class="warp_form">
                     <h1 class="brand_logo">kakao</h1>
                     <form action="signIn" method="post">
-                    	
-                    	<input type="hidden" id="flag" value="<%=request.getAttribute("flag") %>">
-                    	<input type="hidden" id="return_id" value="<%=request.getAttribute("login_id") %>">
-                    	<input type="hidden" id="return_password" value="<%=request.getAttribute("login_password") %>">
+                    	<input type="hidden" id="flag" value="${empty flag ? 3: flag }">
+                    	<input type="hidden" id="return_id" value="${login_id}">
+                    	<input type="hidden" id="return_password" value="${login_password}">
                         <div class="item_tf">
                             <input type="email" class="item_ip" name="login_id" placeholder="카카오메일 아이디, 이메일, 전화번호">
                             <div class="util_tf">                          
@@ -45,18 +43,18 @@
                             카카오메일이 있다면 메일 아이디만 입력해 보세요.
                         </p>
                         <div class="item_msg">
-                        	<span class="msg1">id를 입력해주세요.</span>
-                        	<span class="msg2">존재하지 않는 아이디입니다.</span>
+                        	<span class="msg1">아이디를 입력해주세요.</span>
+                        	<span class="msg2">존재하지 않는 아이디 입니다.</span>
                         </div>
                         <div class="item_tf">
-                            <input type="password" class="item_ip"name="login_password" id="" placeholder="비밀번호">
+                            <input type="password" class="item_ip" name="login_password" placeholder="비밀번호">
                         </div>
                         <div class="item_msg">
                         	<span class="msg3">비밀번호를 입력해주세요.</span>
                         	<span class="msg4">비밀번호가 일치하지 않습니다.</span>
                         </div>
                         <div class="item_chk">
-                            <input type="checkbox" class="item_cb"name="" id="chk">
+                            <input type="checkbox" class="item_cb" name="id_chk_status" id="chk">
                             <label class="chk_on" for="chk">
                                 <i class="far fa-check-circle"></i>
                             </label>
@@ -66,7 +64,7 @@
                             <label for="chk" class="chk_lab">로그인 상태 유지</label>
                         </div>
                         <div class="warp_btn">
-                            <button type="button" class="item_btn btn_login">로그인</button>
+                            <button type="button" class="item_btn btn_login" >로그인</button>
                             <div class="hr-sect">
                                 <span>또는</span>
                             </div>
