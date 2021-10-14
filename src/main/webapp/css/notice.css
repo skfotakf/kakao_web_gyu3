@@ -59,3 +59,17 @@ main a {
 .notice_count {
     width: 100px;
 }
+
+.notice_footer ul{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border: none;
+    text-align: center;
+}
+
+.notice_footer ul li {
+	padding: 0px 10px;
+	
+}

@@ -42,12 +42,18 @@
             	</c:forEach>
                 
             </div>    
-            <div class="notice_footer">
-                
-            </div>
+            
         </main>
         <footer>
-
+			<div class="notice_footer">
+                <ul>
+                	<a href="notice?notice-page=1"><li>1</li></a>
+                	<a href="notice?notice-page=2"><li>2</li></a>
+                	<a href="notice?notice-page=3"><li>3</li></a>
+                	<a href="notice?notice-page=4"><li>4</li></a>
+                	<a href="notice?notice-page=5"><li>5</li></a>
+                </ul>
+            </div>
         </footer>
     </div>
     <script src="https://kit.fontawesome.com/a04df2c0ca.js" crossorigin="anonymous"></script>

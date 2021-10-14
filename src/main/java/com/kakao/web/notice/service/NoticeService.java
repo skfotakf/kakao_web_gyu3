@@ -8,4 +8,5 @@ import com.kakao.web.notice.model.dto.NoticeDto;
 public interface NoticeService {
 
 	public List<NoticeDto> getNoticeListAll();
+	public List<NoticeDto> getNoticeList(String pageNum);
 }
