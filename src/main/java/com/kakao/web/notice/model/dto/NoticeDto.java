@@ -7,6 +7,7 @@ public class NoticeDto {
 	private String notice_writer;
 	private String notice_date;
 	private int notice_count;
+	private String notice_content;
 	
 	public int getIndex() {
 		return index;
@@ -45,11 +46,17 @@ public class NoticeDto {
 		this.notice_count = notice_count;
 	}
 	
+	public String getNotice_content() {
+		return notice_content;
+	}
+	public void setNotice_content(String notice_content) {
+		this.notice_content = notice_content;
+	}
 	@Override
 	public String toString() {
-		return "Notice [index=" + index + ", notice_code=" + notice_code + ", notice_title=" + notice_title
+		return "NoticeDto [index=" + index + ", notice_code=" + notice_code + ", notice_title=" + notice_title
 				+ ", notice_writer=" + notice_writer + ", notice_date=" + notice_date + ", notice_count=" + notice_count
-				+ "]";
+				+ ", notice_content=" + notice_content + "]";
 	}
 	
 	
