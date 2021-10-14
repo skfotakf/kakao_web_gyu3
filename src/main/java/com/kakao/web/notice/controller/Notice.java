@@ -24,8 +24,10 @@ public class Notice extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pageNum = request.getParameter("notice-page") == null ? "1" : request.getParameter("notice-page");
 		
-		List<NoticeDto> noticeList = noticeService.getNoticeListAll();
+		List<NoticeDto> noticeList = noticeService.getNoticeList(pageNum);
+		int[] pages = noticeService.getNoticePages(pageNum);
 		request.setAttribute("noticeList", noticeList);
+		request.setAttribute("pages", pages);
 		request.getRequestDispatcher("/WEB-INF/views/notice.jsp").forward(request, response);
 		
 	}
