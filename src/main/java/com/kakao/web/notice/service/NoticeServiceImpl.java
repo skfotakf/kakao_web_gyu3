@@ -54,6 +54,17 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return pages;
 	}
+
+	@Override
+	public int insertNotice(NoticeDto noticeDto) {
+		int result = noticeDao.insertNotice(noticeDto);
+		if(result != 2) {
+			System.out.println("공지사항이 제대로 insert 되지 않았습니다");
+			return 0;
+		}
+		return 1;
+	}
+	
 	
 	
 }

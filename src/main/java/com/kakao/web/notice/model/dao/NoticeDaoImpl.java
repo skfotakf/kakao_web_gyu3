@@ -60,7 +60,50 @@ public class NoticeDaoImpl implements NoticeDao{
 
 	@Override
 	public int insertNotice(NoticeDto noticeDto) {
+		Connection con = null;
+		Connection con2 = null;
+		Connection con3 = null;
+		PreparedStatement pstmt = null;
+		PreparedStatement pstmt2 = null;
+		PreparedStatement pstmt3 = null;
+		ResultSet rs = null;
+		String sql = null;
+		int maxNoticeCode = 0;
+		int result = 0;
+		
+		try {
+			con = pool.getConnection();
+			con2 = pool.getConnection();
+			con3 = pool.getConnection();
 			
-		return 0;
+			sql = "select max(notice_code) from notice_mst";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			maxNoticeCode = rs.getInt(1)+1;
+			
+			sql = "insert into notice_mst values(?, ?, ?, now(), 0, now(), now())";
+			pstmt2 = con2.prepareStatement(sql);
+			pstmt2.setInt(1, maxNoticeCode);
+			pstmt2.setString(2, noticeDto.getNotice_title());
+			pstmt2.setString(3, noticeDto.getNotice_writer());
+			result = pstmt2.executeUpdate();
+			
+			sql = "insert into notice_dtl values(?, ?, now(), now())";
+			pstmt3 = con3.prepareStatement(sql);
+			pstmt3.setInt(1, maxNoticeCode);
+			pstmt3.setString(2, noticeDto.getNotice_content());
+			result += pstmt3.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+			pool.freeConnection(con2, pstmt2);
+			pool.freeConnection(con3, pstmt3);
+		}
+		
+		return result;
 	}
 }
